@@ -3,9 +3,9 @@
 ## The preparation work:
 
 ### Register for a free account
+Alibaba Cloud Bailian: https://bailian.aliyun.com/ (To obtain the Qwen-7B API key; the free quota is sufficient)
 
-• Alibaba Cloud Bailian: https://bailian.aliyun.com/ (To obtain the Qwen-7B API key; the free quota is sufficient)
-• Neo4j AuraDB: https://neo4j.com/aura/ (Register for the free version and create an empty database)
+Neo4j AuraDB: https://neo4j.com/aura/ (Register for the free version and create an empty database)
 
 ### Install 
 ```bash
