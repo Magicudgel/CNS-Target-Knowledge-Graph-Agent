@@ -1,13 +1,16 @@
 # Validate knowledge graph
 
-'''python
-# Search the first 10 targets
+## Search the first 10 targets
+```python
 with driver.session() as session:
     result = session.run("MATCH (t:Target) RETURN t.name, t.gene_symbol LIMIT 10")
     for record in result:
         print(f"{record['t.name']} ({record['t.gene_symbol']})")
+```
 
-# Search Dopamine D2 Receptor
+
+## Search Dopamine D2 Receptor
+```python
 result = session.run("""
 MATCH (t:Target {gene_symbol: 'DRD2'})-[:ASSOCIATED_WITH]->(d:Disease)
 MATCH (t)-[:INVOLVED_IN]->(p:Pathway)
@@ -21,4 +24,4 @@ for record in result:
     print(f"relevant disease: {', '.join(record['diseases'])}")
     print(f"pathways involved: {', '.join(record['pathways'])}")
     print(f"targetting drugs: {', '.join(record['drugs'])}")
-'''
+```
