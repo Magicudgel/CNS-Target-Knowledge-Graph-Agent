@@ -3,7 +3,7 @@ I have prepared a pre-cleaned CNS core dataset for you (including 1000+ key targ
 
 '''python
 # Download the pre-cleaned CNS dataset
-url = "https://raw.githubusercontent.com/your-org/cns-kg-dataset/main/cns_kg_data.csv"
+url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6OrE-m2LweGguLp31HDruuYlkhybxR-zTaS1xMMUUdEpdPHVrtdCLPva_c3JBm9UNPTqDQF0T4sGN/pub?output=csv"
 df = pd.read_csv(url)
 
 # View Data Structure
