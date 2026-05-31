@@ -1,7 +1,7 @@
 # Core Data Model Design
 We adopt the most concise knowledge graph model for CNS (Central Nervous System) target analysis, which includes 4 types of nodes and 3 types of relationships:
 
-'''bash
+```bash
 Node Types:
 - Target(靶点): id, name, gene_symbol, function, location, family
 - Drug(药物): id, name, type, status, indication
@@ -12,5 +12,5 @@ Relationship Types:
 - TARGETS: Drug -> Target (Drug targets Target)
 - ASSOCIATED_WITH: Target -> Disease (Target is associated with Disease)
 - INVOLVED_IN: Target -> Pathway (Target is involved in Pathway)
-'''
+```
 
