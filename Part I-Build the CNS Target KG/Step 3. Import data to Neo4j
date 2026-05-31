@@ -1,6 +1,5 @@
 # Import data to Neo4j
-
-'''python
+```python
 from neo4j import GraphDatabase
 
 # link to your Neo4j AuraDB database
@@ -22,8 +21,10 @@ def create_nodes_and_relationships(tx, data):
     """, target_id=data['target_id'], target_name=data['target_name'],
        gene_symbol=data['gene_symbol'], target_function=data['target_function'],
        location=data['location'], family=data['family'])
+```
     
     # Construct drug node
+```python
     tx.run("""
     MERGE (d:Drug {id: $drug_id})
     SET d.name = $drug_name,
@@ -33,8 +34,10 @@ def create_nodes_and_relationships(tx, data):
     """, drug_id=data['drug_id'], drug_name=data['drug_name'],
        drug_type=data['drug_type'], drug_status=data['drug_status'],
        indication=data['indication'])
+```
     
     # Construct disease node
+```python
     tx.run("""
     MERGE (dis:Disease {id: $disease_id})
     SET dis.name = $disease_name,
@@ -42,16 +45,20 @@ def create_nodes_and_relationships(tx, data):
         dis.prevalence = $prevalence
     """, disease_id=data['disease_id'], disease_name=data['disease_name'],
        disease_category=data['disease_category'], prevalence=data['prevalence'])
+```
     
     # Construct pathway node
+```python
     tx.run("""
     MERGE (p:Pathway {id: $pathway_id})
     SET p.name = $pathway_name,
         p.description = $pathway_description
     """, pathway_id=data['pathway_id'], pathway_name=data['pathway_name'],
        pathway_description=data['pathway_description'])
+```
     
     # Construct relationship
+```python
     tx.run("""
     MATCH (d:Drug {id: $drug_id}), (t:Target {id: $target_id})
     MERGE (d)-[:TARGETS]->(t)
@@ -66,12 +73,14 @@ def create_nodes_and_relationships(tx, data):
     MATCH (t:Target {id: $target_id}), (p:Pathway {id: $pathway_id})
     MERGE (t)-[:INVOLVED_IN]->(p)
     """, target_id=data['target_id'], pathway_id=data['pathway_id'])
+```
 
 # Import data in batch
+```python
 with driver.session() as session:
     for _, row in df.iterrows():
         session.execute_write(create_nodes_and_relationships, row.to_dict())
 
 print("Knowledge Graph Construction Completed！")
-'''
+```
 
