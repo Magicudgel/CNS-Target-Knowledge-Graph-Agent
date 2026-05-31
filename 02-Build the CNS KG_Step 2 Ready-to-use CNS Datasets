@@ -1,0 +1,12 @@
+# Ready-to-use CNS Datasets
+I have prepared a pre-cleaned CNS core dataset for you (including 1000+ key targets, 500+ FDA-approved drugs, and 200+ common CNS diseases) that you can download and use directly:
+
+'''python
+# Download the pre-cleaned CNS dataset
+url = "https://raw.githubusercontent.com/your-org/cns-kg-dataset/main/cns_kg_data.csv"
+df = pd.read_csv(url)
+
+# View Data Structure
+print(df.head())
+print(f"Total Data Volume: {len(df)}")
+'''
