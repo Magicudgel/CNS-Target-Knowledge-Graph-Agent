@@ -23,7 +23,7 @@ def create_nodes_and_relationships(tx, data):
        location=data['location'], family=data['family'])
 ```
     
-    # Construct drug node
+# Construct drug node
 ```python
     tx.run("""
     MERGE (d:Drug {id: $drug_id})
@@ -36,7 +36,7 @@ def create_nodes_and_relationships(tx, data):
        indication=data['indication'])
 ```
     
-    # Construct disease node
+# Construct disease node
 ```python
     tx.run("""
     MERGE (dis:Disease {id: $disease_id})
@@ -47,7 +47,7 @@ def create_nodes_and_relationships(tx, data):
        disease_category=data['disease_category'], prevalence=data['prevalence'])
 ```
     
-    # Construct pathway node
+# Construct pathway node
 ```python
     tx.run("""
     MERGE (p:Pathway {id: $pathway_id})
@@ -57,7 +57,7 @@ def create_nodes_and_relationships(tx, data):
        pathway_description=data['pathway_description'])
 ```
     
-    # Construct relationship
+# Construct relationship
 ```python
     tx.run("""
     MATCH (d:Drug {id: $drug_id}), (t:Target {id: $target_id})
